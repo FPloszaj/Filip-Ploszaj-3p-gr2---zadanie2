@@ -1,0 +1,16 @@
+table{
+    margin-top:20px;
+    width:600px;
+    text-align:center
+}
+
+td{
+    height: 20px;
+    border: 2px solid blue;
+    background-color: gray;
+    color:white;
+    font-weight:bold;
+}
+tr{
+    border: 2px solid black;
+}

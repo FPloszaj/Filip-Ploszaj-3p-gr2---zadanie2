@@ -1,0 +1,80 @@
+<form method="get" action="handle">
+    <input type="checkbox" name="cb1">
+    <label>UBEZPIECZONY</label>
+    <input type="checkbox" name="cb2">
+    <label>BENZYNA</label>
+    <input type="checkbox" name="cb3">
+    <label>USZKODZONY</label>
+    <input type="checkbox" name="cb4">
+    <label>NAPĘD 4x4</label>
+    <button type="submit" onclick="">Submit</button>
+</form>
+
+<table>
+    {{#each docsy}}
+    <form>
+    <input type="hidden" name="id" value="{{_id}}">
+    {{#if edit}}
+    <tr>
+        <td>
+            <select name="a">
+                <option>TAK</option>
+                <option>NIE</option>
+                <option>BRAK DANYCH</option>
+            </select>
+        </td>
+        <td>
+            <select name="b">
+                <option>TAK</option>
+                <option>NIE</option>
+                <option>BRAK DANYCH</option>
+            </select>
+        </td>
+        <td>
+            <select name="c">
+                <option>TAK</option>
+                <option>NIE</option>
+                <option>BRAK DANYCH</option>
+            </select>
+        </td>
+        <td>
+            <select name="d">
+                <option>TAK</option>
+                <option>NIE</option>
+                <option>BRAK DANYCH</option>
+            </select>
+        </td>
+        <td>
+            <input type="submit" value="ZATWIERDŹ" formaction="/accept">
+        </td>
+        <td>
+            <input onclick="return confirm('Czy chcesz anulować')" type="submit"
+             value="ANULUJ" formaction="/handle">
+        </td>
+    </tr>
+    {{else}}
+      <tr>
+        <td>
+            {{a}}
+        </td>
+        <td>
+            {{b}}
+        </td>
+        <td>
+            {{c}}
+        </td>
+        <td>
+            {{d}}
+        </td>
+        <td>
+            <input type="submit" value="EDIT" formaction="/edit">
+        </td>
+        <td>
+            <input onclick="return confirm('Czy chcesz usunąć rekord?')" type="submit" value="DELETE" formaction="/delete">
+        </td>
+    </tr>
+    {{/if}}
+  
+    </form>
+    {{/each}}
+</table>
