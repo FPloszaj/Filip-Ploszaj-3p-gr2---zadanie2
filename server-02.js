@@ -3,7 +3,7 @@ var app = express()
 var hbs = require('express-handlebars');
 var formidable = require('formidable');
 const Datastore = require('nedb')
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const coll1 = new Datastore({
     filename: 'kolekcja.db',
